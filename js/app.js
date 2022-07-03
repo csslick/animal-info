@@ -1,7 +1,7 @@
 
 $(function(){
   // 페이지 업데이트(시작페이지 query 갱신)
-  location.reload = './?category=dog&age=1';
+  location.reload = 'index.html?category=dog&age=1';
   
   fetch('https://raw.githubusercontent.com/csslick/animal-mobile/main/animal-data.json')
     .then(function(res){
