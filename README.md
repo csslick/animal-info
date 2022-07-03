@@ -10,3 +10,4 @@
     - 자바스크립트로 동물정보 출력
 5. 카테고리 별로 동물 표시(카테고리 필터링)
     - location.search로 페이지별 요청 파마리터(query) 확인
+    - new URLSearchParams(search param).get(key)
