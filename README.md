@@ -11,3 +11,4 @@
 5. 카테고리 별로 동물 표시(카테고리 필터링)
     - location.search로 페이지별 요청 파마리터(query) 확인
     - new URLSearchParams(search param).get(key)
+6. 시작페이지(index.html) 기본값 params = dog
