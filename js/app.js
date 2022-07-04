@@ -5,38 +5,36 @@ fetch('https://raw.githubusercontent.com/csslick/animal-mobile/main/animal-data.
     return res.json(); // JSON 객체 변환
   })
   .then(function(obj){
-    // 최종 데이터 출력(object)
-    console.log(obj);
-    let name = obj[0].name;
-    let category = obj[0].category;
-    let imgUrl = obj[0].imgUrl;
+    // obj 동물데이터
+    showProducts(obj);
+  });
 
-    /*
-    for(let i = 0; i < obj.length; i++) {
+function showProducts(obj) {
+  // 현재 페이지의 URL query 파라미터(매개변수)
+  const query = location.search;
+  console.log(query);
+  // ? URL query문을 object(변수)로 변경
+  const params = new URLSearchParams(query).get('category');
+  console.log(params);  
+
+  // 동물 데이터 출력
+  obj.forEach(function(animal){
+    // 카테고리 구분 dog | cat | bird
+    // 요청한 params와 동물카테고리명이 일치하는 데이터만 출력
+    if(params == animal.category) {
       let html = `
-        <div class="col">
-            <img src=${obj[i].imgUrl} alt="dog01">
-            <p class="name">${obj[i].name}</p>
-        </div>
-      `
-      $('.row').append(html);
+      <div class="col">
+          <img src=${animal.imgUrl} alt="dog01">
+          <p class="name">${animal.name}</p>
+      </div>
+    `
+    $('.row').append(html);
     }
-    */
 
-    // forEach() 반복문
-    obj.forEach(function(animal){
-      console.log(animal.name);
-      let html = `
-        <div class="col">
-            <img src=${animal.imgUrl} alt="dog01">
-            <p class="name">${animal.name}</p>
-        </div>
-      `
-      $('.row').append(html);
-    });
+  });
+}
 
-    
-});
+
 
 
 /* 파라미터를 전달하여 요청하기
